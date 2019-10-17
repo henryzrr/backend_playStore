@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="752304df-46e2-4bb5-8aac-edd2906807c0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../17_octubre/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../17_octubre/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../17_octubre/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../17_octubre/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../17_octubre/17_octubre.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../17_octubre/out/production/17_octubre/AllAppsPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../17_octubre/out/production/17_octubre/AllAppsPanel$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../17_octubre/out/production/17_octubre/AllAppsPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../17_octubre/out/production/17_octubre/IApp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../17_octubre/out/production/17_octubre/IConection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../17_octubre/out/production/17_octubre/META-INF/17_octubre.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../17_octubre/out/production/17_octubre/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../17_octubre/out/production/17_octubre/PlayStoreController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../17_octubre/out/production/17_octubre/PlayStorePanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../17_octubre/out/production/17_octubre/PlayStorePanel$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../17_octubre/out/production/17_octubre/PlayStorePanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../17_octubre/out/production/17_octubre/WindowPreparer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../17_octubre/src/AllAppsPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../17_octubre/src/IApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../17_octubre/src/IConection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../17_octubre/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../17_octubre/src/PlayStoreController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../17_octubre/src/PlayStorePanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../17_octubre/src/WindowPreparer.java" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1SJnDLSxDdTBk0mqxumhUlLHb8C" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../17_octubre/henryZerda" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="henryZerda" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="752304df-46e2-4bb5-8aac-edd2906807c0" name="Default Changelist" comment="" />
+      <created>1571290445381</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1571290445381</updated>
+      <workItem from="1571290447561" duration="114000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
