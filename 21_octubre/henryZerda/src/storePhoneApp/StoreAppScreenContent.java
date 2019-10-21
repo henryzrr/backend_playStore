@@ -1,4 +1,7 @@
 package storePhoneApp;
 
-public class StoreAppScreenContent {
+import javax.swing.*;
+
+public class StoreAppScreenContent extends JPanel {
+
 }
