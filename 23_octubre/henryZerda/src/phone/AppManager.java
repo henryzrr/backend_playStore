@@ -28,11 +28,11 @@ public class AppManager {
         }
         return  installedApps;
     }
-    public void installApp(String appName){
+    public void installApp(String appName,String version){
         try {
-            FileWriter fr = new FileWriter(installedAppDB);
+            FileWriter fr = new FileWriter(installedAppDB,true);
             BufferedWriter writer = new BufferedWriter(fr);
-            writer.append(appName);
+            writer.write(appName+","+version+"\n");
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -48,19 +48,41 @@ public class AppManager {
                     apps.add(app);
                 }
             }
-            FileWriter fr = new FileWriter(installedAppDB);
-            BufferedWriter writer = new BufferedWriter(fr);
-            writer.write("");
-            for (String line:apps
-                 ) {
-                writer.append(line);
-            }
-            writer.close();
-
+            writeDB(apps);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        }
+    }
+    public void updateApp(String appName,String version){
+        try {
+            Scanner reader = new Scanner(installedAppDB);
+            List<String> apps = new LinkedList<>();
+            while(reader.hasNextLine()){
+                String app = reader.nextLine();
+                if(app.contains(appName)){
+                    apps.add(appName+","+version);
+                }else {
+                    apps.add(app);
+                }
+            }
+            writeDB(apps);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+    private void writeDB(List<String>apps){
+        FileWriter fr = null;
+        try {
+            fr = new FileWriter(installedAppDB);
+            BufferedWriter writer = new BufferedWriter(fr);
+            for (String line:apps
+            ) {
+                writer.write(line+"\n");
+            }
+            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 }

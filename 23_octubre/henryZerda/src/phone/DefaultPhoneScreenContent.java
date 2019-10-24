@@ -32,10 +32,10 @@ public class DefaultPhoneScreenContent {
 
     private JPanel setDefaultContent(List<String[]> installedApps,Map<String,PhoneProcess> processes) {
         JPanel content = new JPanel();
-        content.setLayout(new FlowLayout());
+        content.setLayout(new GridLayout(10,1));
         for (String[] apps: installedApps
              ) {
-            JButton button = new JButton(apps[0]);
+            JButton button = new JButton(apps[0] + " Version:"+apps[1]);
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {

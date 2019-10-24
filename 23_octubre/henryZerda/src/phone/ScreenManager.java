@@ -10,6 +10,7 @@ public class ScreenManager {
         screen.setResizable(false);
         screen.setBounds(300,200,400,500);
         screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        screen.setTitle("Phone");
     }
     public void setNewContent(JPanel newContent, JMenuBar newMenu){
         if(actualContent!=null){

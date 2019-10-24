@@ -1,6 +1,6 @@
 package phone;
 
-import storeApp.PatitoStoreProcess;
+import storeApp.StoreProcess;
 
 import javax.swing.*;
 import java.util.HashMap;
@@ -21,14 +21,17 @@ public class PhoneKernel {
 
     private Map<String, PhoneProcess> getProcesses(List<String[]> apps) {
         Map<String,PhoneProcess> processes = new HashMap<>();
-        processes.put("storeApp",new PatitoStoreProcess(this));
+        processes.put("storeApp",new StoreProcess(this));
         return  processes;
     }
-    public void installApp(String appName){
-        appManager.installApp(appName);
+    public void installApp(String appName,String version){
+        appManager.installApp(appName,version);
     }
     public void uninstallApp(String appName){
         appManager.uninstallApp(appName);
+    }
+    public void updateApp(String appName, String version){
+        appManager.updateApp(appName,version);
     }
     public List<String[]> getInstalledApps(){
         return appManager.getInstalledApps();
