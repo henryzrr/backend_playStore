@@ -48,7 +48,7 @@ public class DefaultPhoneScreenContent {
     }
 
     private void manageEvent(String app,Map<String,PhoneProcess> processes) {
-        if(app.contains("phone/storeApp")){
+        if(app.contains("storeApp")){
             processes.get(app).showScreen();
         }else{
             JOptionPane.showMessageDialog(null,"OK!");

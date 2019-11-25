@@ -59,7 +59,7 @@ public class StoreScreenContent {
                     }
                 });
             }else {
-                if(Integer.parseInt(installedApp.get(apps[0])) != Integer.parseInt(apps[1]) ){
+                if(Double.parseDouble(installedApp.get(apps[0])) != Double.parseDouble(apps[1]) ){
                     JButton buttonUpdate = new JButton("Update");
                     buttonUpdate.addActionListener(new ActionListener() {
                         @Override

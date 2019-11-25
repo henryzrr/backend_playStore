@@ -1,37 +1,32 @@
 package phone.storeApp;
 
+import main.Main;
 import phone.PhoneKernel;
 import phone.PhoneProcess;
-import playshopserver.StoreAppServices;
+import playshopserver.RecursosPlayShopCliente;
 
-import javax.swing.*;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class StoreProcess extends PhoneProcess implements Runnable{
-    private StoreAppServices storeAppServices;
-    private  Thread thread;
-    private int keyAvailableApps;
+public class StoreProcess extends PhoneProcess{
+    private RecursosPlayShopCliente recursosPlayShopCliente;
+
     public StoreProcess(PhoneKernel phoneKernel) {
         super(phoneKernel);
-        storeAppServices = StoreAppServices.getInstance();
-        thread = new Thread(this);
-        thread.start();
-        thread.suspend();
+        recursosPlayShopCliente= Main.getRecursosCliente();
     }
 
     @Override
     public void showScreen() {
         StoreScreenContent content = new StoreScreenContent(this);
         phoneKernel.drawNewContent(content.getContent(),content.getMenu());
-        keyAvailableApps = storeAppServices.getKeyAvailableApps();
-        thread.resume();
     }
 
 
     public void updateApp(String appName) {
-        String[] app = storeAppServices.getApp(appName);
+        String [] app = recursosPlayShopCliente.getAppByName(appName).split(",");
         phoneKernel.updateApp(app[0],app[1]);
         showScreen();
     }
@@ -42,7 +37,7 @@ public class StoreProcess extends PhoneProcess implements Runnable{
     }
 
     public void installApp(String appName){
-        String[]app = storeAppServices.getApp(appName);
+        String[]app = recursosPlayShopCliente.getAppByName(appName).split(",");
         phoneKernel.installApp(app[0],app[1]);
         showScreen();
     }
@@ -57,30 +52,18 @@ public class StoreProcess extends PhoneProcess implements Runnable{
         return apps;
     }
     public List<String[]>getAvailableApps(){
-        return storeAppServices.getAvailableServices();
+        List<String> apps = recursosPlayShopCliente.getApps();
+        List<String [] > formatedApps = new LinkedList<>();
+
+        for (String s: apps
+             ) {
+            formatedApps.add(s.split(","));
+        }
+        return formatedApps;
     }
 
     public void getDefaultPhoneScreen(){
-        thread.suspend();
         phoneKernel.setDefaultScreen();
     }
 
-
-    @Override
-    public void run() {
-        int key;
-        while (true){
-            try {
-                Thread.sleep(5000);
-                key=storeAppServices.getKeyAvailableApps();
-                if(key!=keyAvailableApps){
-                    JOptionPane.showMessageDialog(phoneKernel.getContainer(),"Nuevas aplicaciones disponibles");
-                    showScreen();
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-        }
-    }
 }

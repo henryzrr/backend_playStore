@@ -48,11 +48,12 @@ public class PlainTextDBManager {
 
     public void insert(String line) throws IOException{
         FileWriter writer = new FileWriter(db,true);
-        writer.write(line);
+        writer.write(line+"\n");
         writer.close();
     }
     public void update(String line, String pattern)throws IOException{
         List<String> lines=new LinkedList<>();
+        boolean existe=false;
         try {
             Scanner sc = new Scanner(db);
             String auxLine;
@@ -60,6 +61,7 @@ public class PlainTextDBManager {
                 auxLine=sc.nextLine();
                 if(auxLine.contains(pattern)){
                     lines.add(line);
+                    existe=true;
                 }else{
                     lines.add(auxLine);
                 }
@@ -68,13 +70,13 @@ public class PlainTextDBManager {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        if(lines.size()!=1){
+        if(!existe){
             throw  new IOException("No existe la linea "+pattern);
         }
         FileWriter writer = new FileWriter(db,false);
         for (String l:lines
              ) {
-            writer.write(l);
+            writer.write(l+"\n");
         }
         writer.close();
     }

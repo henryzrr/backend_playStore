@@ -21,7 +21,7 @@ public class PhoneKernel {
 
     private Map<String, PhoneProcess> getProcesses(List<String[]> apps) {
         Map<String,PhoneProcess> processes = new HashMap<>();
-        processes.put("phone/storeApp",new StoreProcess(this));
+        processes.put("storeApp",new StoreProcess(this));
         return  processes;
     }
     public void installApp(String appName,String version){

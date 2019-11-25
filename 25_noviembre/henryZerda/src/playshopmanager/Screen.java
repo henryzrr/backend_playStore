@@ -1,13 +1,17 @@
-import playshopserver.InstallerAppServices;
+package playshopmanager;
+
+import playshopserver.RecursosPlayShopManager;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
-public class Main2 {
-    public static void main(String [] args){
-        InstallerAppServices installerAppServices = new InstallerAppServices();
+public class Screen {
+    private RecursosPlayShopManager recursosPlayShopManager;
+    public Screen(RecursosPlayShopManager recursosPlayShopManager){
+        this.recursosPlayShopManager=recursosPlayShopManager;
         JFrame frame = new JFrame();
         frame.setBounds(100,100,300,150);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -24,7 +28,12 @@ public class Main2 {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                verificar(installerAppServices.setApp(appName.getText(),version.getText()),frame);
+                try {
+                    String res = recursosPlayShopManager.addApp(appName.getText()+","+version.getText()+",activa");
+                    JOptionPane.showConfirmDialog(frame,res);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
                 appName.setText("");
                 version.setText("");
             }
@@ -44,9 +53,5 @@ public class Main2 {
         frame.add(salir);
         frame.setVisible(true);
     }
-    private static void verificar(boolean res,JFrame frame){
-        if(!res){
-            JOptionPane.showMessageDialog(frame,"Debe Llenar todos los campos");
-        }
-    }
+
 }
