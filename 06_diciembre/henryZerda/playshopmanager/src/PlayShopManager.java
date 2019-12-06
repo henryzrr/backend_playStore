@@ -16,7 +16,8 @@ public class PlayShopManager {
         List<App> apps=new LinkedList<>();
         Request request = new Request();
         String response = request.doRequest("GET");
-        String [] lines  = response.split("},");
+        Response r = new Response(response);
+        String [] lines  = r.getData().split("},");
         for (String s: lines
              ) {
             apps.add(new App(s));
@@ -47,8 +48,9 @@ public class PlayShopManager {
         Request request = null;
         try {
             request = new Request();
-            String response = request.doRequest("GET:apps/"+nombreApp);
-            return  new App(response);
+            /*String response = request.doRequest("GET:apps/"+nombreApp);
+            return  new App(response);*/
+            return null;
         } catch (IOException e) {
             return null;
         }
