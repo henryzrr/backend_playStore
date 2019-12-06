@@ -42,7 +42,7 @@ public class PlayShopServer {
         String method = st.nextToken();
         switch (method){
             case "GET":
-                if(!request.contains("/")){
+                if(!st.hasMoreTokens()){
                     return recursosPlayShopManager.getAllAvailableApps();
                 }else{
                     String[]app= request.split("/");

@@ -10,8 +10,10 @@ public class RecursosPlayShopManager {
     }
 
     public String getAllAvailableApps(){
+
         String data =  listToJson(serviciosPlayShopServer.getAllAvailableApps());
-        return data;
+        Response response = new Response(200,data);
+        return response.toJson();
     }
     public String getAppByName(String name){
         App app = serviciosPlayShopServer.getAppByName(name);

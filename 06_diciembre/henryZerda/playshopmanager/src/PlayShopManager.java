@@ -15,7 +15,7 @@ public class PlayShopManager {
     public List<App> getAllApps() throws IOException {
         List<App> apps=new LinkedList<>();
         Request request = new Request();
-        String response = request.doRequest("GET:apps");
+        String response = request.doRequest("GET");
         String [] lines  = response.split("},");
         for (String s: lines
              ) {
