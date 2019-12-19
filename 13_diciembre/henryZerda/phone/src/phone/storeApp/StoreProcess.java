@@ -4,15 +4,17 @@ import com.google.gson.Gson;
 import phone.PhoneKernel;
 import phone.PhoneProcess;
 
-import java.io.IOException;
+import javax.swing.*;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 public class StoreProcess extends PhoneProcess{
+    private  Map <String,App> serverApps;
     public StoreProcess(PhoneKernel phoneKernel) {
         super(phoneKernel);
+        serverApps = new HashMap<>();
     }
 
     @Override
@@ -79,6 +81,7 @@ public class StoreProcess extends PhoneProcess{
             if(app.getStatus().equals("false")){
                 continue;
             }
+            serverApps.put(app.getName(),app);
             String [] a = new String[]{app.getName(),app.getVersion()};
             formatedApps.add(a);
         }
@@ -89,4 +92,26 @@ public class StoreProcess extends PhoneProcess{
         phoneKernel.setDefaultScreen();
     }
 
+    private boolean isthereNewApps(){
+        Request request = new Request();
+        String response = request.doRequest("GET");
+        Response r = (new Gson()).fromJson(response,Response.class);
+        for (App app: r.getData()
+        ) {
+            if(app.getStatus().equals("false")){
+                continue;
+            }
+            App aux = serverApps.get(app.getName());
+            if(aux==null || aux.getVersion().equals( app.getVersion())){
+                serverApps.put(app.getName(),app);
+                return true;
+            }
+            serverApps.put(app.getName(),app);
+        }
+        return false;
+    }
+
+    private void sendNotification(){
+        JOptionPane.showMessageDialog(phoneKernel.getContainer(),"Hay una Nueva actualizacion");
+    }
 }
