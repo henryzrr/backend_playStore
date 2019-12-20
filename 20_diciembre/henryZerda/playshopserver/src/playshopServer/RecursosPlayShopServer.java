@@ -1,15 +1,17 @@
 package playshopServer;
 
 import com.google.gson.Gson;
+import notificationServer.NotificationResources;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class RecursosPlayShopServer {
     private ServiciosPlayShopServer serviciosPlayShopServer;
-
-    public RecursosPlayShopServer(ServiciosPlayShopServer serviciosPlayShopServer) {
+    private NotificationResources notificationResources;
+    public RecursosPlayShopServer(ServiciosPlayShopServer serviciosPlayShopServer, NotificationResources notificationResources) {
         this.serviciosPlayShopServer = serviciosPlayShopServer;
+        this.notificationResources = notificationResources;
     }
 
     public String getAllAvailableApps(){
@@ -25,6 +27,7 @@ public class RecursosPlayShopServer {
         try {
             if(auxApp==null){
                 serviciosPlayShopServer.newApp(app);
+                notificationResources.putQueueNotification(app);
             }else{
                 if(!isValidUpdate(auxApp.getVersion(),app.getVersion()))
                     return errorResponse();

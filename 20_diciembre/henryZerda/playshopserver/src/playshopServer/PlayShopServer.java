@@ -24,10 +24,10 @@ public class PlayShopServer {
 
         serverSocket = new ServerSocket(PUERTO);
         AppManager appManager = new AppORMforPlainTextDB(DB_LOCATION);
-        serviciosPlayShopServer=new ServiciosPlayShopServer(appManager);
-        recursosPlayShopServer = new RecursosPlayShopServer(serviciosPlayShopServer);
-        System.out.println("Servidor iniciado en el puerto:50000");
         notificationResources = new NotificationResources();
+        serviciosPlayShopServer=new ServiciosPlayShopServer(appManager);
+        recursosPlayShopServer = new RecursosPlayShopServer(serviciosPlayShopServer,notificationResources);
+        System.out.println("Servidor iniciado en el puerto:50000");
         System.out.println("Servidor de notificaciones iniciado");
     }
 

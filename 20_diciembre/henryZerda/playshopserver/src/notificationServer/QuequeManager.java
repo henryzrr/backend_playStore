@@ -1,34 +1,40 @@
 package notificationServer;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
+import com.google.gson.Gson;
+import playshopServer.App;
+
+import java.util.*;
 
 public class QuequeManager {
-    private Map<Integer, Queue<String>> messages;
+    private Map<Integer, Queue<App>> messages;
+    private Map<Integer, Set<String>> appsPerIUSer;
+    private List<Integer> users;
 
-    public QuequeManager(DBManager dbManager) {
-        messages = new HashMap<>();
-        fillSuscribredUsers(dbManager);
+    public QuequeManager(Map<Integer, Queue<App>> messages,Map<Integer, Set<String>> appsPerIUSer, List<Integer> users) {
+        this.messages = messages;
+        this.appsPerIUSer = appsPerIUSer;
+        this.users = users;
     }
 
-    private void fillSuscribredUsers(DBManager dbManager) {
-        for (Integer user:dbManager.getSuscribedUsers()
+
+
+    public void enqueueNotification(App app){
+        Set<String> apps;
+        Queue <App> queue = null;
+        for (Integer idUser: users
              ) {
-            messages.put(user,new LinkedList<>());
+            apps = appsPerIUSer.get(idUser);
+            if(apps.contains(app.getName()))
+                queue = messages.get(idUser);
+                queue.add(app);
+                messages.put(idUser,queue);
         }
     }
 
-    public Response enqueueNotification(String message,int user){
-        Queue <String> queue = messages.get(user);
-        queue.add(message);
-        messages.put(user,queue);
-        return new Response(200,"");
-    }
-
-    public Response dequeueNotificacion(int user){
-        return new Response(200,messages.get(user).poll());
+    public String dequeueNotificacion(int user){
+        Queue <App> queue = messages.get(user);
+        ResponseNotification responseNotification = new ResponseNotification(200,queue.poll());
+        return new Gson().toJson(responseNotification);
     }
 
 }
