@@ -1,7 +1,7 @@
+package playshopServer;
 
 import com.google.gson.Gson;
 
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 

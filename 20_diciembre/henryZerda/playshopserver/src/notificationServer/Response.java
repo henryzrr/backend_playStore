@@ -1,10 +1,12 @@
+package notificationServer;
+
 import java.util.List;
 
 public class Response {
     private int status;
-    private List<App> data;
+    private String data;
 
-    public Response(int status, List<App> data) {
+    public Response(int status, String data) {
         this.status = status;
         this.data = data;
     }
@@ -13,7 +15,11 @@ public class Response {
         return status;
     }
 
-    public List<App> getData() {
+    public String getData() {
         return data;
+    }
+
+    public String toJson(){
+        return "";
     }
 }

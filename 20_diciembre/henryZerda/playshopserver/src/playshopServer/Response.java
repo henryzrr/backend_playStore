@@ -1,10 +1,12 @@
+package playshopServer;
+
 import java.util.List;
 
 public class Response {
     private int status;
-    private String data;
+    private List<App> data;
 
-    public Response(int status, String data) {
+    public Response(int status, List<App> data) {
         this.status = status;
         this.data = data;
     }
@@ -13,11 +15,7 @@ public class Response {
         return status;
     }
 
-    public String getData() {
+    public List<App> getData() {
         return data;
-    }
-
-    public String toJson(){
-        return "";
     }
 }

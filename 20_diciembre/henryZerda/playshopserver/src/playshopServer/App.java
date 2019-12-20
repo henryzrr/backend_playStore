@@ -1,3 +1,4 @@
+package playshopServer;
 
 public class App {
     private String name;

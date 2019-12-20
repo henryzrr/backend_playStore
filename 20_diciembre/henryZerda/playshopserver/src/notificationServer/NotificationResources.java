@@ -1,6 +1,6 @@
 package notificationServer;
 
-public class NotificacionResources {
+public class NotificationResources {
 
     public String getNotification(){
         return null;

@@ -1,6 +1,7 @@
 package notificationServer;
 
 
+import playshopServer.App;
 
 public class ResponseNotification {
 
