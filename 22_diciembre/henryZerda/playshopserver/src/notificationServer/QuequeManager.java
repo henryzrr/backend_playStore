@@ -35,7 +35,7 @@ public class QuequeManager {
     public String dequeueNotificacion(int user){
         Queue <App> queue = messages.get(user);
         List <App> apps = new LinkedList<>();
-        if(!queue.isEmpty())
+        while(!queue.isEmpty())
             apps.add(queue.poll());
         Response response = new Response(200,apps);
         return new Gson().toJson(response);
